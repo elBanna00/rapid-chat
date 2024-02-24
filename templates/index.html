@@ -3,6 +3,7 @@
   <head>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville&family=Pacifico&family=Protest+Revolution&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
     </style>
     <!--htmx-->
     <script
@@ -17,18 +18,21 @@
     <title>Rapid Chat</title>
     <link rel="stylesheet" href="../assets/style.css" />
   </head>
+
   <body>
-    <h1>Rapid Chat</h1>
+    <h1 id="title">Rapid Chat</h1>
     <div class="container" hx-ext="ws" ws-connect="/ws">
       <div class="chatbox">
         <div class="col-1">
           <div
+            id="chat_room"
             class="msg-row"
             hx-swap="beforeend"
             hx-swap-oob="beforeend"
           ></div>
-          <form class="send-container" ws-send>
+          <form id="form" class="send-container" ws-send hx-reset-on-success>
             <input
+              name="text"
               type="text"
               id="message-input"
               placeholder="Type your message here..."

@@ -74,7 +74,7 @@ func (c *Client) readPump() {
 		}
 		
 
-		msg := &WSMessage{}
+		msg := &Message{}
 
 		reader := bytes.NewReader(text)
 		decoder := json.NewDecoder(reader)
@@ -83,7 +83,7 @@ func (c *Client) readPump() {
 			log.Printf("err: %v"  , err)
 		}
 
-		c.server.broadcast <- &Message{ClientID: c.id , Text : string(text)}
+		c.server.broadcast <- &Message{ClientID: c.id , Text : msg.Text}
 
 	}
 }

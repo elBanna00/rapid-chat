@@ -5,10 +5,14 @@
   font-family: "poppins", sans-serif;
   background-image: linear-gradient(to right, #4c00a3, #004);
 }
-h1 {
+#title {
   color: #fff;
   font-family: "Protest Revolution";
   text-align: center;
+}
+.msgs {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .container {
   width: 100%;
@@ -89,4 +93,10 @@ input:focus {
 }
 form:focus-within {
   outline: 1px solid blue;
+}
+.send-button:hover {
+  opacity: 0.5;
+}
+.send-button:click {
+  opacity: 0.3;
 }
