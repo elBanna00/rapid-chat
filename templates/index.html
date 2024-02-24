@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville&family=Pacifico&family=Protest+Revolution&display=swap");
+    </style>
+    <!--htmx-->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+    <!--WS ext-->
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rapid Chat</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+  </head>
+  <body>
+    <h1>Rapid Chat</h1>
+    <div class="container" hx-ext="ws" ws-connect="/ws">
+      <div class="chatbox">
+        <div class="col-1">
+          <div
+            class="msg-row"
+            hx-swap="beforeend"
+            hx-swap-oob="beforeend"
+          ></div>
+          <form class="send-container" ws-send>
+            <input
+              type="text"
+              id="message-input"
+              placeholder="Type your message here..."
+            />
+            <button type="submit" class="send-button">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
